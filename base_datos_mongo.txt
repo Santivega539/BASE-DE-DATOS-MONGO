@@ -1,0 +1,87 @@
+Please enter a MongoDB connection string (Default: mongodb://localhost/): mongodb://localhost:27017/
+mongodb://localhost:27017/
+Current Mongosh Log ID: 66578ff72701bf6ea3cdcdf5
+Connecting to:          mongodb://localhost:27017/?directConnection=true&serverSelectionTimeoutMS=2000&appName=mongosh+2.2.6
+Using MongoDB:          7.0.9
+Using Mongosh:          2.2.6
+
+For mongosh info see: https://docs.mongodb.com/mongodb-shell/
+
+------
+   The server generated these startup warnings when booting
+   2024-05-28T19:28:31.426-05:00: Access control is not enabled for the database. Read and write access to data and configuration is unrestricted
+------
+base_datos> use base_datos_s
+switched to db base_datos_s
+base_datos_s> var cliente = {idcliente: "1", nombre: "santiago", tipodocumento: "cc", numdocumento: "2121212121", estadocivil: "soltero"}
+base_datos_s> db.usuarios.insertOne(cliente)
+{
+  acknowledged: true,
+  insertedId: ObjectId('6657925d2701bf6ea3cdcdf9')
+Please enter a MongoDB connection string (Default: mongodb://localhost/)
+base_datos_s> db.usuarios.find()
+[
+  {
+    _id: ObjectId('6657925d2701bf6ea3cdcdf9'),
+    idcliente: '1',
+    nombre: 'santiago',
+    tipodocumento: 'cc',
+    numdocumento: '2121212121',
+    estadocivil: 'soltero'
+  }
+base_datos_s> var prorrata = {idprorrata: "1", valorprorrata: "2.941.500", valorprorrataletras: "dos millones novecientos cuarenta y un mil quinientos pesos"}
+
+base_datos_s> db.usuarios.insertOne(prorrata)
+{
+  acknowledged: true,
+  insertedId: ObjectId('66579bba2701bf6ea3cdcdfa')
+}
+base_datos_s> db.usuarios.find()
+[
+  {
+    _id: ObjectId('6657925d2701bf6ea3cdcdf9'),
+    idcliente: '1',
+    nombre: 'santiago',
+    tipodocumento: 'cc',
+    numdocumento: '2121212121',
+    estadocivil: 'soltero'
+  },
+  {
+    _id: ObjectId('66579bba2701bf6ea3cdcdfa'),
+    idprorrata: '1',
+    valorprorrata: '2.941.500',
+    valorprorrataletras: 'dos millones novecientos cuarenta y un mil quinientos pesos'
+  }
+]
+base_datos_s>
+base_datos_s> var constructora = {idconstructora: "1", nombreconstructora: "dgrd", nitconstructora: "910.222.454-4"}
+
+base_datos_s> db.usuarios.insertOne(constructora)
+{
+  acknowledged: true,
+  insertedId: ObjectId('66579f802701bf6ea3cdcdfb')
+}
+base_datos_s> db.usuarios.find()
+[
+  {
+    _id: ObjectId('6657925d2701bf6ea3cdcdf9'),
+    idcliente: '1',
+    nombre: 'santiago',
+    tipodocumento: 'cc',
+    numdocumento: '2121212121',
+    estadocivil: 'soltero'
+  },
+  {
+    _id: ObjectId('66579bba2701bf6ea3cdcdfa'),
+    idprorrata: '1',
+    valorprorrata: '2.941.500',
+    valorprorrataletras: 'dos millones novecientos cuarenta y un mil quinientos pesos'
+  },
+  {
+    _id: ObjectId('66579f802701bf6ea3cdcdfb'),
+    idconstructora: '1',
+    nombreconstructora: 'dgrd',
+    nitconstructora: '910.222.454-4'
+  }
+]
+base_datos_s>
